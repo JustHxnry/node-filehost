@@ -70,6 +70,16 @@ module.exports = (err, url) => {
             };
             return model;
             break;
+        case "servererror":
+            var model = {
+                code: "Internal Server Error",
+                message: "There was an error processing your request.",
+                status: 500,
+                url,
+                date: new Date()
+            };
+            return model;
+            break;
         default:
             break;
     }

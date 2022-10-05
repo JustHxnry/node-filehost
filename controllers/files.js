@@ -38,9 +38,9 @@ module.exports = {
 
         if (!deleteKey) return res.status(401).send(error("unauthorizedDeleteKey", req.url));
 
-        if (deleteKey !== process.env.deleteKey) return res.status(401).send(error("unauthorized", req.url));
+        if (deleteKey !== process.env["deleteKey"]) return res.status(401).send(error("unauthorized", req.url));
 
-        if (deleteKey === process.env.deleteKey) try {
+        if (deleteKey === process.env["deleteKey"]) try {
 
             remove(path(__dirname, "..", "uploads", file));
 
